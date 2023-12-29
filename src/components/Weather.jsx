@@ -62,6 +62,8 @@ const Weather = () => {
     <div className='flex flex-col justify-center p-2 bg-green-300 mt-2 w-[400px] mx-auto rounded-lg h-[335px]'>
         <Card item="Weather Condition" value={location}/>
         <div className="bg-sky-50 h-full mt-2 p-2 rounded-lg">
+        {weatherData && (
+          <>
             <Card 
               item="Weather Condition"
               value={weatherData.weather}
@@ -78,6 +80,8 @@ const Weather = () => {
               item="Humidity"
               value={`${weatherData.humidity} %`}
             />
+          </>
+        )}
             <div className="flex mt-2 w-auto">
             <p className="bg-green-200 p-2 ml-auto rounded-lg flex-grow text-center">made by <a href="https://github.com/thelocalgodd">thelocalgodd 👾</a></p>
             </div>
@@ -87,4 +91,4 @@ const Weather = () => {
   )
 }
 
-export default Weather
+export default Weather;
