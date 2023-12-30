@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import Loading from "./Loading"
 
 const Card = ({ item, value }) => {
   return (
@@ -42,9 +43,14 @@ const Weather = () => {
     <div className="w-[400px] bg-green-200 p-3 mx-auto mt-2 rounded-xl">
         <input 
           type="text" 
-          placeholder="Enter City" 
+          placeholder={location} 
           className="p-1 px-2 bg-green-100 rounded-lg w-[295px] outline-none" 
           onChange={(e) => setLocation(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              getWeatherInfo(location);
+            }
+          }}
         />
 
         <button 
@@ -81,7 +87,7 @@ const Weather = () => {
               value={`${weatherData.humidity} %`}
             />
           </>
-        )}
+        ) || <Loading />}
             <div className="flex mt-2 w-auto">
             <p className="bg-green-200 p-2 ml-auto rounded-lg flex-grow text-center">made by <a href="https://github.com/thelocalgodd">thelocalgodd 👾</a></p>
             </div>
