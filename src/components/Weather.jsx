@@ -11,7 +11,7 @@ const Card = ({ item, value }) => {
 }
 
 const Weather = () => {
-  const [location, setLocation] = useState("Ho, Ghana")
+  const [location, setLocation] = useState("Accra, Ghana")
   const [weatherData, setWeatherData] = useState(null)
 
   const getWeatherInfo = (location) => {
